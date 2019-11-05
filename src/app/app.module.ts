@@ -15,7 +15,7 @@ import { ComponentsModule } from './components/components.module';
 
 
 // Import guards
-import { AuthGuard } from './services/_guards/auth-guards';
+import { AuthGuard } from './services/guards/auth-guards';
 
 @NgModule({
   imports: [
