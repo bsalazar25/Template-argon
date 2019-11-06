@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/Auth/auth.service';
 
 declare interface RouteInfo {
     path: string;
@@ -27,7 +28,7 @@ export class SidebarComponent implements OnInit {
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -35,4 +36,12 @@ export class SidebarComponent implements OnInit {
       this.isCollapsed = true;
    });
   }
+
+  OnlogOut() {
+
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
+
+
 }
